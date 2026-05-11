@@ -22,7 +22,7 @@ function App() {
     setSearched(false);
     setQuery(searchTerm);
     try {
-      const response = await axios.post("http://localhost:5000/recommend", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/recommend`, {
         preference: searchTerm,
       });
       setRecommendations(response.data.recommendation);
@@ -302,7 +302,6 @@ const styles = {
     display: "inline-block",
     animation: "pulse 2s infinite",
   },
-
   hero: { marginBottom: "2rem", textAlign: "left" },
   heroTitle: {
     fontFamily: "'Syne', sans-serif",
@@ -319,7 +318,6 @@ const styles = {
     fontSize: 15, color: "#6B7280",
     margin: 0, fontWeight: 300, lineHeight: 1.6,
   },
-
   searchCard: {
     background: "#fff",
     border: "1px solid #E5E7EB",
@@ -368,7 +366,6 @@ const styles = {
     cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
     transition: "all 0.15s ease",
   },
-
   loadingArea: { textAlign: "center" },
   loadingCards: { display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 },
   skeletonCard: {
@@ -386,7 +383,6 @@ const styles = {
     height: 13, background: "#E5E7EB", borderRadius: 6,
   },
   loadingText: { fontSize: 13, color: "#9CA3AF", margin: 0 },
-
   resultsArea: { animation: "fadeUp 0.3s ease" },
   resultsHeader: {
     display: "flex", alignItems: "flex-end",
@@ -432,7 +428,6 @@ const styles = {
     letterSpacing: "-0.03em", lineHeight: 1,
   },
   productPriceLabel: { fontSize: 10, color: "#9CA3AF", marginTop: 2, fontWeight: 500 },
-
   emptyState: {
     background: "#fff", border: "1px solid #E5E7EB",
     borderRadius: 20, padding: "3rem 2rem",
@@ -446,7 +441,6 @@ const styles = {
   },
   emptyTitle: { fontSize: 16, fontWeight: 600, color: "#1A1A2E", margin: "0 0 6px" },
   emptyHint: { fontSize: 13, color: "#9CA3AF", margin: 0 },
-
   idleState: { textAlign: "center", paddingTop: "1rem" },
   idleGrid: {
     display: "grid", gridTemplateColumns: "repeat(2, 1fr)",
